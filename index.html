@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>姑姑茶葉蛋(團購)</title>
+    <style>
+        .error {
+            color: mediumslateblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">姑姑茶葉蛋(團購)</h1>
+        </br>
+        <P style="color: brown;text-align: center;">
+            <span type="text" style="color:blue;size: 50px;"> ● 合購須知 ●</span></br>
+            面交地點: 台南北區海安路三段的 "露易莎咖啡"門口</br>
+            面交時間: 盡量周末, 因為冰箱不大恕無法幫忙冷藏保存, 不介意在跟團。 </br>
+            統一付款後下單, 付款帳號為台新rechart 請勿跑單, 會在ptt公布跑單帳號/姓名。
+        </P>
+        <!-- 表單返回頁，記得在表單加「 target='returnWin' 」 -->
+        <iframe name="returnWin" style="display: none;" onload="this.onload=function(){window.location='ok.html'}"></iframe>
+        <form target='returnWin' role="form" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdLzMGlbh4gxMubpdi0GZuhW_fxUP1eAgPybs6M2IT4wykzVw/formResponse" method="post" id="myForm">
+
+            <div class="row">
+                <div class="col">
+                    <!--姓名電話-->
+                    <div class="form-group">
+                        <label for="text">姓名+ptt帳號:</label>
+                        <input type="text" class="form-control" name="entry.1090646017" id="1090646017" placeholder="沒有PTT帳號,只寫姓名">
+                        <!-- <small id="text" class="form-text text-muted"> 沒有ptt帳號,寫姓名就好 </small> -->
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="number">電話 </label>
+                        <input type="number" class="form-control" name="entry.1739909624" id="1739909624" min="0">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>合計</label>
+                        <input type="text" class="form-control" name="total" id="total" value="" readonly>
+                    </div>
+                </div>
+            </div>
+            <!--辣味茶葉蛋-110元-->
+            <div class="row">
+                <div class="col">
+                    <label>
+                    <img src="img/spicy.jpg" width="50%"></img></br>
+                    <span class="title" style="color:red;">辣味茶葉蛋-110元</span><span style="color: brown;"> *請填數量</span></label>
+                    <input type="number" class="form-control amount" name="entry.1727420932" id="1727420932" value="0" min="0" onchange="calTotal();">
+                    <!-- 可以在尾巴加上min="0"就會強制不能選填負數 -->
+                    <!-- type = text 為可以打字不輸數量 -->
+                </div>
+                <!--原味茶葉蛋-95元-->
+                <div class="col">
+                    <label>
+                 <img src="img/normal.jpg" width="50%"></img></br>
+                 <span class="title" style="color: rgb(36, 172, 31);"> 原味茶葉蛋-95元</span><span style="color: darkblue;">*(請填數量)</span></label>
+                    <input type="number" class="form-control amount" name="entry.618690862" id="618690862" value="0" min="0" onchange="calTotal();">
+                </div>
+            </div>
+            <!-- 備註 -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="control-label">備註</label>
+                        <textarea class="form-control" cols="200" rows="3" id="2009585124" name="entry.2009585124" placeholder="留言..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pb-3">
+                <button type="submit" class="btn btn-warning">
+                <a href="ok.html"><span class="text" style="color:blueviolet;">送出</span></a></button>
+
+            </div>
+        </form>
+        <button type="submit" class="btn btn-primary">
+            <a href="contact.html"><span class="text" style="color: aqua;">與主購聯系</span></a></button>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!-- 表單驗證 -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+        <!-- jquery的基本用法 
+    https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/270803/
+     -->
+        <!-- 調用函式方法 -->
+        <script>
+            $(function() {
+                $("#myForm").validate({
+                    submitHandler: function(form) {
+                        form.submit();
+                    },
+                    rules: {
+                        'entry.1090646017': { //姓名+ptt帳號 *
+                            required: true
+                        },
+                        'entry.1739909624': { //電話
+                            required: true,
+                            digits: true,
+                            min: "0"
+                        },
+                        'entry.1727420932': { //辣味茶葉蛋-110元
+                            digits: true,
+                            min: "0"
+                        },
+                        'entry.618690862': { //原味茶葉蛋-95元
+                            digits: true,
+                            min: "0"
+                        },
+                        'total': { //合計
+                            required: true
+                        }
+                    },
+                    messages: {
+                        'entry.1090646017': { //姓名+ptt帳號 
+                            required: "請輸入姓名/帳號"
+                        },
+                        'entry.1739909624': { //電話
+                            digits: "請填正確號碼",
+                            min: "請填正確號碼"
+                        },
+                        'entry.1727420932': { //辣味茶葉蛋-110元
+                            digits: "請填正確數量",
+                            min: "請填正確數量"
+                        },
+                        'entry.618690862': { //原味茶葉蛋-95元
+                            digits: "請填正確數量",
+                            min: "請填正確數量"
+                        },
+                        'total': { //合計
+                            required: "尚未選口味"
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            // 合計金額
+            function calTotal() {
+                // document.getElementsByClassName("title")[0].innerText //取數值
+                // document.getElementsByClassName("amount")[0].value //取數值
+                var titles = document.getElementsByClassName("title");
+                var amounts = document.getElementsByClassName("amount");
+                var total = 0;
+                for (var i = 0; i < titles.length; i++) {
+                    var title = document.getElementsByClassName("title")[i].innerText;
+                    var amount = document.getElementsByClassName("amount")[i].value;
+                    var subArr = title.split("-");
+                    // 字串分割split
+                    var price = parseInt(subArr[1]); //這邊的[1]是因為切割後取右邊的值
+                    // total = total + (amount * price); 比較基礎的寫法, 下面是比較進階的
+                    total += (amount * price);
+                }
+                if (total === 0) {
+                    document.getElementById("total").value = total;
+                } else {
+                    document.getElementById("total").value = total;
+                }
+            }
+        </script>
+</body>
+
+</html>
